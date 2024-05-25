@@ -133,37 +133,54 @@ function draw()
 	robot2_y += robot2Speed_y;
 
 	//place your if statements here
-    if (robot1_x >= 500){
+    if (robot1_x <= 0 || robot1_x >= width-100){
         robot1Speed_x *= -1
     }
     
-    else if (robot1_x <= 0){
-        robot1Speed_x *= -1
-    }
-    
-    else if (robot2_x >= 500){
+    else if (robot2_x <=0 ||robot2_x >= width-100){
         robot2Speed_x *= -1
     }
     
-    else if (robot2_x <= 0){
-        robot2Speed_x *= -1
-    }
-    
-    if (robot1_y >= 500){
+    else if (robot1_y <= 0 || robot1_y >= 500){
         robot1Speed_y *= -1
     }
     
-    else if (robot1_y <= 0){
-        robot1Speed_y *= -1
-    }
     
-    else if (robot2_y >= 500){
+    else if (robot2_y <= 0 || robot2_y >= 500){
         robot2Speed_y *= -1
     }
     
-    else if (robot2_y <= 0){
-        robot2Speed_y *= -1
-    }
     
-
+//  //wrap around the canvas edges
+//  if (robot1_x < -100) {
+//    robot1_x = width;
+//  } else if (robot1_x > width) {
+//    robot1_x = -100;
+//  }
+//  if (robot1_y < -100) {
+//    robot1_y = height;
+//  } else if (robot1_y > height) {
+//    robot1_y = -100;
+//  }
+//  if (robot2_x < -100) {
+//    robot2_x = width;
+//  } else if (robot2_x > width) {
+//    robot2_x = -100;
+//  }
+//  if (robot2_y < -100) {
+//    robot2_y = height;
+//  } else if (robot2_y > height) {
+//    robot2_y = -100;
+//  }
+//    
+//    bounce off each other
+  else if (robot1_x < robot2_x + 100 &&
+      robot1_x + 100 > robot2_x &&
+      robot1_y < robot2_y + 100 &&
+      robot1_y + 100 > robot2_y) {
+    robot1Speed_x *= -1;
+    robot1Speed_y *= -1;
+    robot2Speed_x *= -1;
+    robot2Speed_y *= -1;
+  }
 }
