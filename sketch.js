@@ -47,8 +47,8 @@ function setup()
 	robot1Speed_x = random(2, 5);
 	robot1Speed_y = random(2, 5);
 
-	robot2Speed_x = 0;
-	robot2Speed_y = 0;
+	robot2Speed_x = random(2, 5);
+	robot2Speed_y = random(2, 5);
 
 }
 
@@ -126,12 +126,44 @@ function draw()
 	vertex(robot2_x + 74, robot2_y + 75);
 	endShape();
 
-	//update the robots location
+//	update the robots location
 	robot1_x += robot1Speed_x;
 	robot1_y += robot1Speed_y;
-	//robot2_x += robot2Speed_x;
-	//robot2_y += robot2Speed_y;
+	robot2_x += robot2Speed_x;
+	robot2_y += robot2Speed_y;
 
 	//place your if statements here
+    if (robot1_x >= 500){
+        robot1Speed_x *= -1
+    }
+    
+    else if (robot1_x <= 0){
+        robot1Speed_x *= -1
+    }
+    
+    else if (robot2_x >= 500){
+        robot2Speed_x *= -1
+    }
+    
+    else if (robot2_x <= 0){
+        robot2Speed_x *= -1
+    }
+    
+    if (robot1_y >= 500){
+        robot1Speed_y *= -1
+    }
+    
+    else if (robot1_y <= 0){
+        robot1Speed_y *= -1
+    }
+    
+    else if (robot2_y >= 500){
+        robot2Speed_y *= -1
+    }
+    
+    else if (robot2_y <= 0){
+        robot2Speed_y *= -1
+    }
+    
 
 }
